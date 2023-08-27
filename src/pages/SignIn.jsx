@@ -9,23 +9,44 @@ import AccountActions from "@/components/AccountActions";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { useInputState } from "@/hooks/useInputState";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import pb from "@/api/pocketbase";
+
+const signInFields = [
+  { name: "email", text: "이메일", placholder: "lion123@naver.com" },
+  { name: "password", text: "비밀번호", placholder: "*******" },
+];
+
+const initalValue = {
+  username: "",
+  email: "",
+  password: "",
+};
 
 function SignIn() {
-  const signInPassword = useId();
-  const signInId = useId();
   const navigate = useNavigate();
+  const { signIn, isAuth, user } = useAuth();
 
-  const { isAuth, user, token } = useAuth();
+  console.log(user);
 
-  const { formState: userValue, handleChange } = useInputState();
+  const { formState, handleChange } = useInputState(initalValue);
 
-  console.log(userValue);
+  const handleChangeUserValue = (e) => {
+    const { id, value } = e.target;
+    handleChange(id, value);
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/selectpage");
+    const { email, password } = formState;
+
+    try {
+      await pb.collection("users").authWithPassword(email, password);
+      alert("로그인에 성공하였습니다 다음 페이지로 이동할게요 🥳");
+      navigate("/selectpage");
+    } catch (error) {
+      alert("로그인 이메일 이나 비밀번호 정보가 일치하지 않습니다");
+    }
   };
 
   return (
@@ -36,33 +57,28 @@ function SignIn() {
         <Lion className={"absolute top-[0]"} lionColor="red" />
         <FormTitle text="로그인" />
         <div className="bg-lionWhite px-9 pt-7 rounded-[20px]">
-          <Input
-            text="이메일"
-            id={signInId}
-            placeholderText="lion123@naver.com"
-            // defaultValue={userValue.name}
-            onChange={handleChange}
-          />
-
-          <Input
-            text="비밀번호"
-            id={signInPassword}
-            placeholderText="*******"
-            // defaultValue={userValue.password}
-            onChange={handleChange}
-          />
+          {signInFields.map((field) => {
+            return (
+              <Input
+                id={field.name}
+                key={field.name}
+                text={field.text}
+                defaultValue={formState[field.name]}
+                placeholderText={field.placholder}
+                onChange={handleChangeUserValue}
+              />
+            );
+          })}
         </div>
         <AccountActions />
-        <Link to="/selectpage">
-          <CircleButton
-            type="submit"
-            circleButtonText="확인"
-            width="140px"
-            height="140px"
-            borderWidth="border-4"
-            handleSubmit={handleSubmit}
-          />
-        </Link>
+        <CircleButton
+          type="submit"
+          circleButtonText="확인"
+          width="140px"
+          height="140px"
+          borderWidth="border-4"
+          onClick={handleSubmit}
+        />
       </FormContainer>
     </>
   );

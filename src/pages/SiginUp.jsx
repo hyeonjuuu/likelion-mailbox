@@ -63,7 +63,7 @@ function SiginUp() {
           width="140px"
           height="140px"
           borderWidth="border-4"
-          handleCreateUser={handleCreateUser}
+          onClick={handleCreateUser}
         />
       </FormContainer>
     </>

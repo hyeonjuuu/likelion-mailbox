@@ -1,14 +1,26 @@
 # [멋쟁이사자처럼 프론트엔드스쿨 6기] 롤링페이퍼
 
-## 1. 팀 소개 (회고 6조 - 자유롭조)
+---
+
+## 1. 프로젝트 및 팀 소개
+
+### 1-1. 프로젝트 팀: 회고 6조 -자유롭조
 
 ![Image](https://github.com/dani-day/git-test/assets/134567470/c737cf96-77f5-4d63-96f7-78aa67d62afd)
 
-### 1-1. 프로젝트 기간
+### 1-2. 사용 기술
+
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white">
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">
+<img src="https://img.shields.io/badge/tailwind-06B6D4?style=for-the-badge&logo=TailwindCSS&logoColor=white">
+<img src="https://img.shields.io/badge/pocketbase-B8DBE4?style=for-the-badge&logo=pocketbase&logoColor=white">
+<img src="https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white">
+
+### 1-3. 프로젝트 기간
 
 8월 22일 (화) ~ 8월 27일 (일)
 
-### 1-2. 역할분담
+### 1-4. 역할분담
 
 **기획 및 디자인**
 
@@ -23,7 +35,7 @@
 - 현주: 편지 작성/확인 선택 페이지, 편지 리스트 페이지
 - 소희: 받는이 선택 페이지
 
-### 1-3. 한줄소감
+### 1-5. 한줄소감
 
 **고수완**
 
@@ -49,15 +61,19 @@
 
 > 회고조원들과 프로젝트를 할 수 있어서 좋았다. 수업이 끝나고 리뷰 하는 것과는 또 다른 유익함과 재미가 있었다. 기능을 완전히 구현하지 못했지만, 리액트에 대해 더 알게 되는 계기가 되었다. 더 잘 만들고싶다…
 
+---
+
 ## 2. 서비스 소개
 
 멋쟁이사자처럼 프론트엔드스쿨 6기가 한달 남은 시점, 동기들에게 메세지를 남길 수 있는 서비스를 기획하였습니다.
 
-- 배포 사이트: https://develop--dreamy-truffle-987f58.netlify.app/
+- **배포 사이트**: https://develop--dreamy-truffle-987f58.netlify.app/
 
-- 피그마 시안: https://www.figma.com/file/Eqr5T4YguikgMPJBpS7Xn2/lion-mailbox?type=design&node-id=0%3A1&mode=design&t=dmIrSxAzSOoiX1M6-1
+- **피그마 시안**: https://www.figma.com/file/Eqr5T4YguikgMPJBpS7Xn2/lion-mailbox?type=design&node-id=0%3A1&mode=design&t=dmIrSxAzSOoiX1M6-1
 
 ![Image](https://github.com/dani-day/git-test/assets/134567470/bfcf0052-2427-411a-b277-ce5a763f037d)
+
+---
 
 ## 3. 구현 내용
 
@@ -81,8 +97,8 @@
 
 ![Image](https://github.com/dani-day/git-test/assets/134567470/51e0c4a9-b2c9-499c-98e0-bb52e539a6bb)
 
-- [ ] 이름, 이메일, 비밀번호 정규식 확인 완료 시, 회원가입이 완료됩니다.
-- [ ] 회원가입 데이터가 포켓베이스에 create 됩니다.
+- [x] 이름, 이메일, 비밀번호 정규식 확인 완료 시, 회원가입이 완료됩니다.
+- [x] 회원가입 데이터가 포켓베이스에 create 됩니다.
 
 ### 3-4. 편지 작성/확인 선택
 
@@ -117,7 +133,7 @@
 ![Image](https://github.com/dani-day/git-test/assets/134567470/ae5743a9-94db-4e26-9127-a5e0fa5e4afc)
 
 - [x] 편지 내용을 작성할 수 있습니다.
-- [ ] 작성된 편지 데이터를 포켓베이스로 전송합니다.
+- [x] 작성된 편지 데이터를 포켓베이스로 전송합니다.
       <br>
   > - 포켓베이스에 저장되어 있는 `fromId`, `toId`, `gifStamp`, `content` 데이터를 props로 받아와 화면에 렌더링 하였습니다.
   > - 컴포넌트로 분리한 뒤 props를 받아와 스타일링을 했습니다.
@@ -125,6 +141,7 @@
 ### 3-8. 봉투 선택
 
 ![Image](https://github.com/dani-day/git-test/assets/134567470/1df14424-24b8-4173-a618-7e8c273ede59)
+![Image](https://github.com/dani-day/git-test/assets/134567470/601d7049-709c-4d06-bf97-e6f32bf596d2)
 
 - [x] openweathermap API 를 연결하여, 멋쟁이사자처럼 본사 위치의 현재 기온을 불러옵니다.
 - [x] 기온 구간 별로 봉투 색깔을 다르게 설정합니다. (총 색상 7가지)
