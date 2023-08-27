@@ -3,14 +3,14 @@ import { useState } from "react";
 import { useId } from "react";
 import SearchButton from "./SearchButton";
 
-function SearchBar() {
-  
+function SearchBar({ onSearch }) {
   const searchId = useId();
-  const [searchInput, setUserInput] = useState("");
-  
+  const [searchInput, setSearchInput] = useState("");
+
   // 검색창
   const handleChangeInput = debounce((e) => {
-    setUserInput(e.target.value.toLowerCase())
+    const userInputValue = e.target.value.toLowerCase();
+    onSearch(userInputValue);
   }, 300);
 
   // 엔터 눌렀을 때 초기화 되지 않도록
@@ -20,9 +20,14 @@ function SearchBar() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className=" flex items-center justify-center py-10">
-        <label htmlFor={searchId} className="sr-only">검색</label>
-        <input 
+      <form
+        onSubmit={handleSubmit}
+        className=" flex items-center justify-center py-10"
+      >
+        <label htmlFor={searchId} className="sr-only">
+          검색
+        </label>
+        <input
           type="text"
           name="search"
           id={searchId}
@@ -31,7 +36,7 @@ function SearchBar() {
           onChange={handleChangeInput}
           className="w-[993px] h-[57px] rounded-[10px] border-2 border-solid border-lionBlack bg-lionWhite mr-2 outline-lionYellow"
         />
-        <SearchButton searchInput={searchInput}/>
+        <SearchButton searchInput={searchInput} />
       </form>
     </>
   );

@@ -2,19 +2,18 @@ import pb from "@/api/pocketbase";
 import { useEffect } from "react";
 import { useState } from "react";
 
-export function useUserList () {
-
+export function useUserList() {
   const [data, setData] = useState([]);
-  const [status, setStatus] = useState('pending');
+  const [status, setStatus] = useState("pending");
 
   async function getUserList() {
     try {
-      setStatus('loading');
-      const getUserName = await pb.collection('test_users').getFullList();
+      setStatus("loading");
+      const getUserName = await pb.collection("users").getFullList();
       setData(getUserName);
-      setStatus('success');
+      setStatus("success");
     } catch (error) {
-      setStatus('error');
+      setStatus("error");
     }
   }
 
@@ -22,6 +21,5 @@ export function useUserList () {
     getUserList();
   }, []);
 
-  return {data, status}
-
+  return { data, status };
 }
