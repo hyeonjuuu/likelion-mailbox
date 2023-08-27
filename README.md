@@ -67,7 +67,7 @@
 
 멋쟁이사자처럼 프론트엔드스쿨 6기가 한달 남은 시점, 동기들에게 메세지를 남길 수 있는 서비스를 기획하였습니다.
 
-- **배포 사이트**: https://develop--dreamy-truffle-987f58.netlify.app/
+- **배포 사이트**: https://marvelous-jalebi-d88e69.netlify.app/
 
 - **피그마 시안**: https://www.figma.com/file/Eqr5T4YguikgMPJBpS7Xn2/lion-mailbox?type=design&node-id=0%3A1&mode=design&t=dmIrSxAzSOoiX1M6-1
 
