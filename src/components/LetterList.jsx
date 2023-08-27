@@ -11,10 +11,9 @@ function Letter() {
 
   const handleEnvelope = (e, item) => {
     e.preventDefault();
-
-    // 클릭한 대상의 item 데이터를 콘솔에 출력
     console.log(item);
   };
+
   useEffect(() => {
     if (data) {
       setFilteredItems(data.items.filter((item) => item.toId === userId.toId));
