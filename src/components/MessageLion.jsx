@@ -1,4 +1,3 @@
-import BlueLion from "./BlueLion";
 import Lion from "@/components/Lion";
 
 function MessageLion({ role, color }) {
@@ -16,7 +15,7 @@ function MessageLion({ role, color }) {
         {color === "red" ? (
           <Lion width={200} height={200} lionColor="red" />
         ) : (
-          <BlueLion />
+          <Lion width={200} height={200} lionColor="blue" />
         )}
       </div>
 
