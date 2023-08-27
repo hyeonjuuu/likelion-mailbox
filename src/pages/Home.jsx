@@ -10,7 +10,11 @@ function Home() {
           멋쟁이사자가 된 동기들에게
         </span>
         <Link to="/signin">
-          <CircleButton circleButtonText={"편지 쓰기"} type={"submit"} />
+          <CircleButton
+            circleButtonText={"편지 쓰기"}
+            type={"submit"}
+            borderWidth="border-4"
+          />
         </Link>
         <Lion
           className={"absolute top-[445px] right-[150px]"}

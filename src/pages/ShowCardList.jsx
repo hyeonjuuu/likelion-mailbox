@@ -1,6 +1,6 @@
 import LetterList from "@/components/LetterList";
 import Header from "@/layout/Header";
-import { Link } from "react-router-dom";
+
 
 function ShowCardList() {
   return (
@@ -11,9 +11,7 @@ function ShowCardList() {
         fillColor={"#0D77D8"}
       />
       <div className="flex flex-row justify-center my-4">
-        <Link to="/">
           <LetterList />
-        </Link>
       </div>
     </>
   );

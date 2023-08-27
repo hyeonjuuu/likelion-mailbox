@@ -7,6 +7,7 @@ const isDev = env.NODE_ENV === 'development';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/",
   plugins: [react()],
   css: {
     devSourcemap: true,

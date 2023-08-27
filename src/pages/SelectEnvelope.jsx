@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import fetchWeatherData from "@/utils/weatherAPI";
 import useMessageItem from "@/hooks/useMessageItem";
 import { useUpdate as useUpdateMessage } from "@/hooks/useMessages";
+import { Link } from 'react-router-dom';
 
 const initialEnvelopeState = {
   envelope: "",
@@ -99,12 +100,14 @@ function SelectEnvelope() {
           </p>
           <div className="envelopeWrapper m-auto">
             <img className="m-auto" src={envelopeImage} alt="편지봉투" />
-            <button
-              className="yesButton absolute w-[150px] h-[150px] right-[565px] bottom-[185px] z-10 bg-lionYellow rounded-full border-8 font-extrabold text-[40px] text-center border-lionBlack"
-              onClick={handleEditEnvelope}
-            >
-              좋아!
-            </button>
+            <Link to="/selectpage">
+              <button
+                className="yesButton absolute w-[150px] h-[150px] right-[565px] bottom-[185px] z-10 bg-lionYellow rounded-full border-8 font-extrabold text-[40px] text-center border-lionBlack"
+                onClick={handleEditEnvelope}
+              >
+                좋아!
+              </button>
+            </Link>
             <a href="">
               <img
                 className="absolute w-[88px] h-[88px] right-[56px] bottom-[66px]"

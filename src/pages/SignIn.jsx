@@ -2,64 +2,69 @@ import Lion from "@/components/Lion";
 import { useId } from "react";
 import CircleButton from "@/components/CircleButton";
 import GoToBackButton from "@/components/GoToBackButton";
+import FormContainer from "@/layout/FormContainer";
+import FormTitle from "@/components/FormTitle";
+import Input from "@/components/Input";
+import AccountActions from "@/components/AccountActions";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/context/AuthContext";
+import { useInputState } from "@/hooks/useInputState";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function SignIn() {
-  const signInId = useId();
   const signInPassword = useId();
+  const signInId = useId();
+  const navigate = useNavigate();
+
+  const { isAuth, user, token } = useAuth();
+
+  const { formState: userValue, handleChange } = useInputState();
+
+  console.log(userValue);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/selectpage");
+  };
 
   return (
-    <div className="mt-[149px]">
-      <div className="absolute ">
-        <Lion lionColor={"red"} width={"201px"} height={"201px"} />
-      </div>
+    <>
+      <GoToBackButton className={"absolute top-[80px] right-[120px]"} />
 
-      <section className="w-[443px] h-[600px] bg-white flex justify-center items-center">
-        <form className="">
-          <h2 className="">로그인</h2>
-          <div className="">
-            <div className="">
-              <label htmlFor={signInId} className="">
-                아이디
-              </label>
-              <input
-                type="text"
-                id={signInId}
-                name={signInId}
-                className=""
-                placeholder="lion1234"
-              />
-            </div>
-          </div>
-          <div className="">
-            <label htmlFor={signInPassword} className="">
-              비밀번호
-            </label>
-            <input
-              type="password"
-              id={signInPassword}
-              name={signInPassword}
-              className=""
-              placeholder="*********"
-            />
-          </div>
-          <div className="">
-            <span>비밀번호를 잊어버렸나요 ?</span>
-            <span className="">회원가입</span>
-          </div>
-
-          <CircleButton
-            type={"submit"}
-            circleButtonText={"확인"}
-            width={"140px"}
-            height={"140px"}
+      <FormContainer>
+        <Lion className={"absolute top-[0]"} lionColor="red" />
+        <FormTitle text="로그인" />
+        <div className="bg-lionWhite px-9 pt-7 rounded-[20px]">
+          <Input
+            text="이메일"
+            id={signInId}
+            placeholderText="lion123@naver.com"
+            // defaultValue={userValue.name}
+            onChange={handleChange}
           />
 
-          <div className="absolute top-10 right-[60px]">
-            <GoToBackButton />
-          </div>
-        </form>
-      </section>
-    </div>
+          <Input
+            text="비밀번호"
+            id={signInPassword}
+            placeholderText="*******"
+            // defaultValue={userValue.password}
+            onChange={handleChange}
+          />
+        </div>
+        <AccountActions />
+        <Link to="/selectpage">
+          <CircleButton
+            type="submit"
+            circleButtonText="확인"
+            width="140px"
+            height="140px"
+            borderWidth="border-4"
+            handleSubmit={handleSubmit}
+          />
+        </Link>
+      </FormContainer>
+    </>
   );
 }
 
