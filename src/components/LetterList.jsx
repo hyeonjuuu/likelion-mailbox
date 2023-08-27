@@ -6,14 +6,16 @@ import { useEffect } from "react";
 
 function Letter() {
   const { data } = useMessageList();
-  let userId = data?.items[5];
+  let userId = JSON.parse(localStorage.getItem("pocketbase_auth")).model.id;
+
+  console.log(userId);
   const [filteredItems, setFilteredItems] = useState([]);
 
   useEffect(() => {
     if (data) {
-      setFilteredItems(data.items.filter((item) => item.toId === userId.toId));
+      setFilteredItems(data?.items.filter((item) => item.toId === userId));
     }
-  }, [data, userId]);
+  }, [data]);
 
   return (
     <ul className="flex flex-wrap gap-4 max-w-[1280px] justify-between px-4">

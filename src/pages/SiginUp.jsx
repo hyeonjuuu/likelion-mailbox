@@ -1,4 +1,3 @@
-import pb from "@/api/pocketbase";
 import CircleButton from "@/components/CircleButton";
 import FormTitle from "@/components/FormTitle";
 import GoToBackButton from "@/components/GoToBackButton";
@@ -10,14 +9,16 @@ import FormContainer from "@/layout/FormContainer";
 import { useNavigate } from "react-router-dom";
 
 const inputFields = [
-  { name: "username", text: "사자 이름", placeholder: "김사자" },
+  { name: "username", text: "사자 아이디", placeholder: "lion6" },
   { name: "email", text: "사자 이메일", placeholder: "lion@naver.com" },
+  { name: "name", text: "사자 이름", placeholder: "김사자" },
   { name: "password", text: "비밀번호", placeholder: "******" },
   { name: "passwordConfirm", text: "비밀번호 확인", placeholder: "******" },
 ];
 
 const initalValue = {
   username: "",
+  name: "",
   email: "",
   password: "",
   passwordConfirm: "",
@@ -32,7 +33,7 @@ function SiginUp() {
   const handleCreateUser = async () => {
     await signUp(formState);
     alert(
-      `${formState.username} (으)로 가입 되었습니다 로그인 페이지로 이동합니다 🐣!`,
+      `${formState.username} (으)로 가입 되었습니다 로그인 페이지로 이동합니다 🐣`,
     );
     navigate("/signin");
   };
@@ -63,7 +64,7 @@ function SiginUp() {
           width="140px"
           height="140px"
           borderWidth="border-4"
-          handleCreateUser={handleCreateUser}
+          onClick={handleCreateUser}
         />
       </FormContainer>
     </>

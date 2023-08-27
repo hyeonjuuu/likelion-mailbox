@@ -6,7 +6,6 @@ import PocketBase from "pocketbase";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 
-
 function SelectStamp() {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("cat");
@@ -42,7 +41,7 @@ function SelectStamp() {
     const pb = new PocketBase("https://likelion-mailbox.pockethost.io");
     const record = await pb
       .collection("test_message")
-      .update("mkk5rmyoplcj8o8", updatedData);
+      .update("oxz95wlkj4qv1r4", updatedData);
     // const stampData = [...record];
     if (record) {
       toast.success("이미지 저장에 성공하였습니다! ✅");

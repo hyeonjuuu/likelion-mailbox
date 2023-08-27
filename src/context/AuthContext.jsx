@@ -29,7 +29,7 @@ function AuthProvider({ displayName = "Auth.Provider", children }) {
   }, []);
 
   const signUp = async (registerUser) => {
-    return await pb.collection("test_users").create(registerUser);
+    return await pb.collection("users").create(registerUser);
   };
   const signIn = async (userNameOrEmail, password) => {
     return await pb
@@ -43,11 +43,16 @@ function AuthProvider({ displayName = "Auth.Provider", children }) {
     return await pb.collection("users").delete(recordId);
   };
 
+  const createData = async (tableName, registerUser) => {
+    return await pb.collection(tableName).create(registerUser);
+  };
+
   const authValue = {
     ...authState,
     signUp,
     signIn,
     signOut,
+    createData,
     membershipWithdrawal,
   };
 

@@ -6,7 +6,7 @@ function Input({ id, placeholderText, text = "", defaultValue, onChange }) {
           {text}
         </label>
         <input
-          type="text"
+          type={placeholderText.includes("*") ? "password" : "text"}
           id={id}
           name={id}
           defaultValue={defaultValue}
