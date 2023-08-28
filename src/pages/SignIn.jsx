@@ -1,5 +1,4 @@
 import Lion from "@/components/Lion";
-import { useId } from "react";
 import CircleButton from "@/components/CircleButton";
 import GoToBackButton from "@/components/GoToBackButton";
 import FormContainer from "@/layout/FormContainer";
@@ -7,9 +6,7 @@ import FormTitle from "@/components/FormTitle";
 import Input from "@/components/Input";
 import AccountActions from "@/components/AccountActions";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/context/AuthContext";
 import { useInputState } from "@/hooks/useInputState";
-import { useState } from "react";
 import pb from "@/api/pocketbase";
 
 const signInFields = [
@@ -25,9 +22,6 @@ const initalValue = {
 
 function SignIn() {
   const navigate = useNavigate();
-  const { signIn, isAuth, user } = useAuth();
-
-  console.log(user);
 
   const { formState, handleChange } = useInputState(initalValue);
 

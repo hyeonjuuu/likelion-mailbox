@@ -1,11 +1,9 @@
-import { Link } from 'react-router-dom';
 function CircleButton({
-
   type,
   circleButtonText,
   width,
   height,
-  handleCreateUser,
+  onClick,
   borderWidth,
 }) {
   const circleButtonSize = {
@@ -15,16 +13,16 @@ function CircleButton({
 
   return (
     <>
-        <button
-          className={`bg-lionYellow ${borderWidth} border-black rounded-full cursor-pointer}`}
-          type={type}
-          style={circleButtonSize}
-          onClick={handleCreateUser}
-        >
-          <span className="font-extrabold text-center text-[2.5rem]">
-            {circleButtonText}
-          </span>
-        </button>
+      <button
+        className={`bg-lionYellow ${borderWidth} border-black rounded-full cursor-pointer}`}
+        type={type}
+        style={circleButtonSize}
+        onClick={onClick}
+      >
+        <span className="font-extrabold text-center text-[2.5rem]">
+          {circleButtonText}
+        </span>
+      </button>
     </>
   );
 }

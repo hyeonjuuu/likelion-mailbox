@@ -9,7 +9,7 @@ function ShowCardList() {
         lionColor="blue"
         fillColor={"#0D77D8"}
       />
-      <div className="flex flex-row justify-center my-4 w-[1280px]">
+      <div className="flex flex-row justify-center my-4">
         <LetterList />
       </div>
     </>
